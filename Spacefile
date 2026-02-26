@@ -1,0 +1,8 @@
+v: 0
+app_name: "Campus Social Backend"
+micros:
+  - name: campus-social-backend
+    src: ./
+    engine: python3.9
+    dev: .venv/bin/uvicorn main:app --reload
+  

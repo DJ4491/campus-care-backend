@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+firebase-admin
+python-jose[cryptography]
+httpx
+pydantic>=2.0,<3
+pydantic-settings
