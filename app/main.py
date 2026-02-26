@@ -22,6 +22,10 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
 if __name__ == '__main__':
     port = int(os.getenv("PORT",8080))
     import uvicorn
