@@ -13,11 +13,16 @@ def create_post_db(limit: int, cursor: str | None = None):
 
     # Base query: newest first
     query = db.collection("posts").order_by("created_at", direction=firestore.Query.DESCENDING)
-    logger.debug("Base query created with order_by('created_at', DESCENDING)") # Use debug for very granular info
-    cursor = cursor.strip()
-    cursor = cursor.strip('"')
+    logger.debug("Base query created with order_by('created_at', DESCENDING)")  # Use debug for very granular info
+
+    # Normalize cursor only if it was provided
+    if cursor is not None:
+        cursor = str(cursor).strip().strip('"')
+    else:
+        cursor = None
+
     # If cursor exists, fetch the document snapshot and anchor after it
-    if cursor:  
+    if cursor:
         cursor_doc_ref = db.collection("posts").document(cursor)
         # Note: .get() is also synchronous
         cursor_doc = cursor_doc_ref.get()
