@@ -1,2 +1,8 @@
+# Firebase / Google service account keys
 serviceAccountKey.json
-*.json
+*serviceAccount*.json
+firebase-adminsdk*.json
+
+# Env files
+.env
+.env.*
